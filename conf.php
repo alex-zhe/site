@@ -1,0 +1,10 @@
+<?
+define("LOG_FILE","./log/total.log");
+define("HOST","localhost");
+define("USER","root");
+define("PASS","");
+define("DB","test");
+define("CALL_METHODS",'select,update,delete,insert');
+define("DEBUG_LEVELS","error,debug,notice,warning");
+define("CALL_ATTRIBUTES",'tables,fields,values,where,order_by,group_by,asc_desc,distinct');
+?>

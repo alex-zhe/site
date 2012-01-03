@@ -1,0 +1,51 @@
+.header_c
+{
+width:100%;
+height:40px;
+background:#eee;
+border-bottom:1px solid #DDD;
+}
+
+.header
+{
+margin:10px 0px 10px 0px;
+}
+
+.content_c
+{
+width:100%;
+height:auto;
+padding-top:30px;
+}
+
+#right{
+float:left;
+background:#eee;
+margin-left:50px;
+border:1px solid #DDD;
+}
+
+#left
+{
+margin:0 150px 0px 400px;
+width:auto;
+height:auto;
+background:#eee;
+border:1px solid #DDD;
+}
+
+.footer_c
+{
+margin-top:200px;
+width:100%;
+height:auto;
+min-height:20px;
+background:#eee;
+border-top:1px solid #DDD;
+}
+
+#menu
+{
+float:right;
+padding:10px 10px 10px 10px;
+}

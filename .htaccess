@@ -1,0 +1,3 @@
+rewriteEngine on
+rewriteBase /site/
+rewriteRule ^tpl/([a-zA-Z\.\,\-\_]*) tpl.php?tpl=$1
