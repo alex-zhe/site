@@ -4,6 +4,17 @@ function init() {
     }
 	}
 
+function logout()
+{
+var http = getXmlHttp();
+http.open("GET", 'logout.php', true);
+http.onreadystatechange = function() {
+	console.log(http.responseText);
+}
+http.send();
+render('login,login_text,login_menu');
+}	
+	
 function auth()
 {
 
@@ -18,7 +29,14 @@ http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
 http.onreadystatechange = function() {
 	if(http.readyState == 4 && http.status == 200) {
-		console.log(http.responseText);
+	      if(http.responseText=='404')
+		  {
+		      render('login,login_text,login_menu');
+		  }
+		  if(http.responseText=='202')
+		  {
+		      render('userpage,userpage_text,userpage_menu');
+		  }
 	}
 }
 http.send(params);
@@ -31,7 +49,7 @@ http.open("GET","tpl/"+param,true);
 http.onreadystatechange = function() {//Call a function when the state changes.
 	if(http.readyState == 4 && http.status == 200) {
 	//alert(http.responseText);	
-	console.log(http.responseText);
+	//console.log(http.responseText);
 	var obj = JSON.parse(http.responseText);
 	
 		for(p in obj)

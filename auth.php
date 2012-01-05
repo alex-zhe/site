@@ -1,5 +1,6 @@
 <?
 require('class.nativeDB.php');
+session_start();
 
 $login = $_POST['login'];
 $pass = $_POST['pass'];
@@ -13,12 +14,13 @@ $db->where="login='$login' AND pass='$pass'";
 $result = $db->select();
 if(!empty($result))
 {
-session_start();
 $_SESSION['id']=$result;
+echo '202';
 }
 else
 {
 $_SESSION['message']='Wrong login/password';
+echo '404';
 }
 
 ?>

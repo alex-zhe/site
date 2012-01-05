@@ -165,7 +165,7 @@ class nativeDB
 
 		default:brake;
 		}
-		echo $this->query;
+		self::$log->debug("$this->query proceed",__CLASS__);
 
 	}
 
