@@ -2,8 +2,8 @@
 require('class.nativeDB.php');
 session_start();
 
-$login = $_POST['login'];
-$pass = $_POST['pass'];
+$login = mysql_real_Escape_string($_POST['login']);
+$pass = mysql_real_escape_string($_POST['pass']);
 $pass=md5($pass);
 
 $db = nativeDB::get_instance();

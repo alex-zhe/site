@@ -16,7 +16,7 @@ unset($_SESSION['message']);
 
 if($id)
 {
-$tpl_var=array('%NAME','%SECONDNAME','%BIRTHDAY','%PHOTO','%HOBBIES','%CINEMA','%MUSIC');
+$tpl_var=array('%NAME','%SECONDNAME','%BIRTHDAY','%PHOTO','%HOBBIES','%CINEMA','%MUSIC','%AGE');
 $db=nativeDB::get_instance();
 $db->init_connection();
 $db->tables="users";
@@ -31,7 +31,14 @@ $photo =  $data['photo'][0];
 $hobbies=$data['hobbies'][0];
 $cinema=$data['cinema'][0];
 $music=$data['music'][0];
-$rplc_var = array($name,$secondname,$birthday,$photo,$hobbies,$cinema,$music);
+list($month,$day,$year) = explode(".",$birthday);
+$year_diff = date("Y") - $year;
+$month_diff = date("m") - $month;
+$day_diff = date("d") - $day;
+if (($day_diff < 0 && $month_diff==date("m")) || $month_diff < 0)
+$year_diff--;
+$age=$year_diff;
+$rplc_var = array($name,$secondname,$birthday,$photo,$hobbies,$cinema,$music,$age);
 $template = 'userpage,userpage_text,userpage_menu';
 $template = explode(',',$template);
 $temp='';
